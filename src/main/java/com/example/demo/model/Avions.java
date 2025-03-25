@@ -9,19 +9,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Time;
-import java.util.Date;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class Depart {
+public class Avions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-    private Long num_depart;
-    private Date date;
-    private Time heure_depart;
+    private Long id;
+    private String immatriculation;
+    private String type;
+    private Long capacite;
 }
