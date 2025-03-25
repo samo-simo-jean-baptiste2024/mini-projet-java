@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class NonNavigant extends Personnel {
+public class Navigants extends Personnels {
+    private  Long heure_vole;
 
 }
