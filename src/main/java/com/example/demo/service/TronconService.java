@@ -6,10 +6,8 @@ import java.util.List;
 
 public interface TronconService {
     Troncon getTronconById(Long id);
-
     List<Troncon> getAllTroncons();
 
-    void saveTroncon(Troncon user);
-
+    void saveTroncon(Troncon troncon);
     void deleteTroncon(Long id);
 }

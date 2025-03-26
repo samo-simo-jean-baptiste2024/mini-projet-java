@@ -6,10 +6,8 @@ import java.util.List;
 
 public interface DepartService {
     Depart getDepartById(Long id);
-
     List<Depart> getAllDeparts();
 
-    void saveDepart(Depart user);
-
+    void saveDepart(Depart depart);
     void deleteDepart(Long id);
 }

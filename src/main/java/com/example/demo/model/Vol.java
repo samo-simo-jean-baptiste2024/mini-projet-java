@@ -30,4 +30,7 @@ public class Vol {
             inverseJoinColumns = @JoinColumn(name = "troncons_id")
     )
     private List<Troncon> troncons;
+
+    @OneToMany(mappedBy = "vol", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Depart> departs;
 }

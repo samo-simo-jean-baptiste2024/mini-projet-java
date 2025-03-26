@@ -40,7 +40,11 @@ public class Depart {
     )
     private List<Passager> passagers;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "avion_id")
+    private Avion avion;
+
+    @ManyToOne
     @JoinColumn(name = "vol_id")
-    private Vol vols;
+    private Vol vol;
 }

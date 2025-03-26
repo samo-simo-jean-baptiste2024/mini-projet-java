@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +21,6 @@ public class Avion {
     private String immatriculation;
     private String type;
     private Long capacite;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "depart_id")
-    private Depart depart;
+    @OneToMany(mappedBy = "avion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Depart> depart;
 }

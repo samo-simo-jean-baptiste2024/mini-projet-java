@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Depart;
 import com.example.demo.service.DepartService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "depart", produces = APPLICATION_JSON_VALUE)
 public class DepartController {
+    @Autowired
     private DepartService departService;
 
     @ResponseStatus(HttpStatus.OK)

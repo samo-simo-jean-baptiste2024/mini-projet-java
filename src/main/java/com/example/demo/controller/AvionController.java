@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Avion;
 import com.example.demo.service.AvionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "avion", produces = APPLICATION_JSON_VALUE)
 public class AvionController {
+    @Autowired
     private AvionService avionService;
 
     @ResponseStatus(HttpStatus.OK)
