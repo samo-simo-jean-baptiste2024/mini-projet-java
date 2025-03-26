@@ -32,8 +32,8 @@ public class TronconController {
         tronconService.saveTroncon(troncon);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Troncon troncon) {
         tronconService.updateTroncon(id, troncon);
     }
