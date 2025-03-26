@@ -18,7 +18,7 @@ public class VolServiceImpl implements VolService {
     }
 
     @Override
-    public Vols getVol(Long numeroVol) {
+    public Vols getVols(Long numeroVol) {
         return volRepository.findById(numeroVol).orElse(null);
     }
 
