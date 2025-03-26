@@ -8,6 +8,7 @@ public interface AvionService {
     Avion getAvionById(Long id);
     List<Avion> getAllAvions();
 
+    void updateAvion(Long id, Avion avion);
     void saveAvion(Avion avion);
     void deleteAvion(Long id);
 }

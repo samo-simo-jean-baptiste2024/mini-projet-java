@@ -18,6 +18,7 @@ public class Avion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nom;
     private String immatriculation;
     private String type;
     private Long capacite;

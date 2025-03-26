@@ -36,8 +36,8 @@ public class DepartController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public void updete(@RequestBody Depart depart) {
-        departService.saveDepart(depart);
+    public void updete(@PathVariable Long id, @RequestBody Depart depart) {
+        departService.updateDepart(id, depart);
     }
 
     @ResponseStatus(HttpStatus.OK)

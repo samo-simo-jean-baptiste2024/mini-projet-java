@@ -36,8 +36,8 @@ public class AvionController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public void update(@RequestBody Avion avion) {
-        avionService.saveAvion(avion);
+    public void update(@PathVariable Long id, @RequestBody Avion avion) {
+        avionService.updateAvion(id, avion);
     }
 
     @ResponseStatus(HttpStatus.OK)

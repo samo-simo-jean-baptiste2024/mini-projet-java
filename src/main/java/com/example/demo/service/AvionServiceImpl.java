@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AvionServiceImpl implements AvionService {
@@ -20,6 +21,21 @@ public class AvionServiceImpl implements AvionService {
     @Override
     public List<Avion> getAllAvions() {
         return avionRepository.findAll();
+    }
+
+    @Override
+    public void updateAvion(Long id, Avion avion) {
+        Optional<Avion> optionalUser = avionRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            Avion existingAvion = optionalUser.get();
+            existingAvion.setNom(avion.getNom());
+            existingAvion.setCapacite(avion.getCapacite());
+            existingAvion.setImmatriculation(avion.getImmatriculation());
+            existingAvion.setType(avion.getType());
+            avionRepository.save(existingAvion);
+        } else {
+            throw new RuntimeException("Avion non trouvé !");
+        }
     }
 
     @Override
