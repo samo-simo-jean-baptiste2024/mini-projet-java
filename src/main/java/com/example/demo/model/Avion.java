@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +11,15 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Passagers {
+@Table(name = "avions")
+public class Avion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nom;
-    private String adresse;
-    private Long tel;
-
+    private String immatriculation;
+    private String type;
+    private Long capacite;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "depart_id")
+    private Depart depart;
 }

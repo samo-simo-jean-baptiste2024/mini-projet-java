@@ -13,7 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Vols {
+@Table(name = "vols")
+public class Vol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,5 +29,5 @@ public class Vols {
             joinColumns = @JoinColumn(name = "vols_id"),
             inverseJoinColumns = @JoinColumn(name = "troncons_id")
     )
-    private List<Troncons> troncons;
+    private List<Troncon> troncons;
 }

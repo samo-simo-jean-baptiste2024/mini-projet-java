@@ -7,13 +7,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
+@Entity
 @DiscriminatorValue("NAVIGANT")
-public class Navigants extends Personnels {
-    private  Long heure_vole;
+public class Navigant extends Personnel {
+    private Long heure_vole;
 
 }

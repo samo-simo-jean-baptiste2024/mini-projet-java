@@ -15,15 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Departs {
+@Table(name = "departs")
+public class Depart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
     private Long num_depart;
     private Date date;
     private Time heure_depart;
-
-    private  Float quantite_kerosene;
+    private Float quantite_kerosene;
 
     @ManyToMany
     @JoinTable(
@@ -31,16 +31,16 @@ public class Departs {
             joinColumns = @JoinColumn(name = "departs_id"),
             inverseJoinColumns = @JoinColumn(name = "personnels_id")
     )
-    private List<Personnels> personnels;
+    private List<Personnel> personnels;
     @ManyToMany
     @JoinTable(
             name = "departs_passagers",
             joinColumns = @JoinColumn(name = "departs_id"),
             inverseJoinColumns = @JoinColumn(name = "passagers_id")
     )
-    private List<Passagers> passagers;
+    private List<Passager> passagers;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "vol_id")
-    private  Vols vols;
+    private Vol vols;
 }

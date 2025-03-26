@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Avions;
+import com.example.demo.model.Avion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AvionRepository extends JpaRepository<Avions, Long> {
+public interface AvionRepository extends JpaRepository<Avion, Long> {
 }

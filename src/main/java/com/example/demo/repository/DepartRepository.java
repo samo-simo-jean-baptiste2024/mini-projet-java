@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Departs;
+import com.example.demo.model.Depart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DepartRepository extends JpaRepository<Departs, Long> {
+public interface DepartRepository extends JpaRepository<Depart, Long> {
 }

@@ -11,13 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-
-public class Personnels {
+@Table(name = "passagers")
+public class Passager {
     @Id
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private  Long id;
-    private  String nom;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nom;
     private String adresse;
     private Long tel;
 }

@@ -11,14 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class Avions {
+@Table(name = "personnels")
+public class Personnel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String immatriculation;
-    private String type;
-    private Long capacite;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "depart_id")
-    private  Departs depart;
+    private String nom;
+    private String adresse;
+    private Long tel;
 }
