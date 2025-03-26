@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Vols;
+import com.example.demo.model.Vol;
 import com.example.demo.repository.VolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,22 +13,22 @@ public class VolServiceImpl implements VolService {
     private VolRepository volRepository;
 
     @Override
-    public List<Vols> getVols() {
+    public List<Vol> getVols() {
         return volRepository.findAll();
     }
 
     @Override
-    public Vols getVols(Long numeroVol) {
+    public Vol getVols(Long numeroVol) {
         return volRepository.findById(numeroVol).orElse(null);
     }
 
     @Override
-    public Vols creerVol(Vols vol) {
+    public Vol creerVol(Vol vol) {
         return volRepository.save(vol);
     }
 
     @Override
-    public Vols mettreAJourVol(Vols vol) {
+    public Vol mettreAJourVol(Vol vol) {
         return volRepository.save(vol);
     }
 

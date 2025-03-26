@@ -1,19 +1,19 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Personnels;
+import com.example.demo.model.Personnel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface PersonnelService {
-    List<Personnels> getPersonnels();
+    List<Personnel> getPersonnels();
 
-    Personnels getPersonnels(Long id);
+    Personnel getPersonnels(Long id);
 
-    Personnels creerPersonnels(Personnels personnels);
+    Personnel creerPersonnels(Personnel personnels);
 
-    Personnels mettreAjourPersonnels (Personnels personnels);
+    Personnel mettreAjourPersonnels(Personnel personnels);
 
     void supprimerPersonnels(Long id);
 }

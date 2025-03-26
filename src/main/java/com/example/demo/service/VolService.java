@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Vols;
+import com.example.demo.model.Vol;
 
 import java.util.List;
 
 public interface VolService {
-    List<Vols> getVols();
-    Vols getVols(Long numeroVol);
-    Vols creerVol(Vols vols);
-    Vols mettreAJourVol(Vols vols);
+    List<Vol> getVols();
+
+    Vol getVols(Long numeroVol);
+
+    Vol creerVol(Vol vols);
+
+    Vol mettreAJourVol(Vol vol);
     void supprimerVol(Long numeroVol);
 }

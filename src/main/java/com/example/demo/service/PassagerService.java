@@ -1,17 +1,17 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Passagers;
-import com.example.demo.model.Vols;
+import com.example.demo.model.Passager;
 
 import java.util.List;
 
 public interface PassagerService {
-    List<Passagers> getPassagers();
-    Passagers getPassagers(Long id);
+    List<Passager> getPassagers();
 
-    Passagers creerPassagers (Passagers passagers);
+    Passager getPassagers(Long id);
 
-    Passagers mettreAJourPassagers(Passagers passagers);
+    Passager creerPassagers(Passager passagers);
+
+    Passager mettreAJourPassagers(Passager passagers);
     void supprimerPassagers(Long id);
 }
 

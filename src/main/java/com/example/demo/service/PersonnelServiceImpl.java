@@ -1,8 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Passagers;
-import com.example.demo.model.Personnels;
-import com.example.demo.repository.PassagerRepository;
+import com.example.demo.model.Personnel;
 import com.example.demo.repository.PersonnelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,22 +12,22 @@ public class PersonnelServiceImpl implements PersonnelService{
     @Autowired
     PersonnelRepository personnelRepository;
     @Override
-    public List<Personnels> getPersonnels(){
+    public List<Personnel> getPersonnels() {
         return personnelRepository.findAll();
     }
 
     @Override
-    public Personnels getPersonnels(Long id) {
+    public Personnel getPersonnels(Long id) {
         return personnelRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Personnels creerPersonnels(Personnels personnels) {
+    public Personnel creerPersonnels(Personnel personnels) {
         return personnelRepository.save(personnels);
     }
 
     @Override
-    public Personnels mettreAjourPersonnels(Personnels personnels) {
+    public Personnel mettreAjourPersonnels(Personnel personnels) {
         return personnelRepository.save(personnels);
     }
 
