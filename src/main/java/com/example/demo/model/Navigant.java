@@ -15,5 +15,4 @@ import lombok.Setter;
 @DiscriminatorValue("NAVIGANT")
 public class Navigant extends Personnel {
     private Long heure_vole;
-
 }

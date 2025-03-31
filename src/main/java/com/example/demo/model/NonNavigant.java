@@ -6,4 +6,5 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("NON_NAVIGANT")
 public class NonNavigant extends Personnel {
+
 }

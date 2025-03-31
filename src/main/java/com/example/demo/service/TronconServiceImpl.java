@@ -12,6 +12,8 @@ import java.util.Optional;
 public class TronconServiceImpl implements TronconService {
     @Autowired
     private TronconRepository tronconRepository;
+    @Autowired
+    private PassagerService passagerService;
 
     @Override
     public Troncon getTronconById(Long id) {
@@ -35,13 +37,13 @@ public class TronconServiceImpl implements TronconService {
             existingTroncon.setVille_arrive(troncon.getVille_arrive());
             tronconRepository.save(existingTroncon);
         } else {
-            throw new RuntimeException("Départ non trouvé !");
+            throw new RuntimeException("Troncon non trouvé !");
         }
     }
 
     @Override
-    public void saveTroncon(Troncon user) {
-        tronconRepository.save(user);
+    public void saveTroncon(Troncon troncon) {
+        tronconRepository.save(troncon);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,8 @@ public class Avion {
     private String immatriculation;
     private String type;
     private Long capacite;
-    @OneToMany(mappedBy = "avion", cascade = CascadeType.ALL, orphanRemoval = true)
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "avion", orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Depart> depart;
 }

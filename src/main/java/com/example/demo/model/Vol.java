@@ -1,12 +1,15 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @Setter
@@ -21,16 +24,19 @@ public class Vol {
     private String num_vol;
     private String ville_depart;
     private String ville_arrive;
-    private Float frequence;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "vol", fetch = FetchType.LAZY)
+    List<Depart> departs;
+    private int frequence;
     @ManyToMany
     @JoinTable(
             name = "vols_troncons",
-            joinColumns = @JoinColumn(name = "vols_id"),
-            inverseJoinColumns = @JoinColumn(name = "troncons_id")
+            joinColumns = @JoinColumn(name = "vol_id"),
+            inverseJoinColumns = @JoinColumn(name = "troncon_id")
     )
-    private List<Troncon> troncons;
+    private Set<Troncon> escales = new HashSet<>();
 
-    @OneToMany(mappedBy = "vol", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Depart> departs;
+    public void addTroncon(Troncon troncon) {
+        escales.add(troncon);
+    }
 }

@@ -28,6 +28,12 @@ public class DepartController {
         return departService.getAllDeparts();
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/vol")
+    public List<Depart> getDepartByVolId(@RequestParam Long id) {
+        return departService.getDepartByVolId(id);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void save(@RequestBody Depart depart) {
@@ -44,5 +50,23 @@ public class DepartController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         departService.deleteDepart(id);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{departId}/passager/{passagerId}")
+    public void enrollPassager(@PathVariable Long departId, @PathVariable Long passagerId) {
+        departService.enrollPassager(departId, passagerId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{departId}/personnel/{personnelId}")
+    public void enrollPersonnel(@PathVariable Long departId, @PathVariable Long personnelId) {
+        departService.enrollPersonnel(departId, personnelId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/{departId}/troncon/{tronconId}/passager/{passagerId}")
+    public void joinPassagerInTroncon(@PathVariable Long departId, @PathVariable Long tronconId, @PathVariable Long passagerId) {
+        departService.joinPassagerInTroncon(departId, tronconId, passagerId);
     }
 }

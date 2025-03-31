@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -22,5 +25,8 @@ public class Troncon {
     private Time heure_depart;
     private String ville_arrive;
     private Time heure_arrive;
-    private Float distance;
+    @JsonIgnore
+    @OneToMany(mappedBy = "troncon", fetch = FetchType.LAZY)
+    Set<PassagerTroncon> escales_passagers = new HashSet<>();
+    private int distance;
 }

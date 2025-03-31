@@ -1,10 +1,14 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -18,5 +22,11 @@ public class Passager {
     private Long id;
     private String nom;
     private String adresse;
-    private Long tel;
+    @JsonIgnore
+    @OneToMany(mappedBy = "passager", fetch = FetchType.LAZY)
+    Set<PassagerTroncon> escales_passagers = new HashSet<>();
+    private int tel;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "direct_passagers", fetch = FetchType.LAZY)
+    private Set<Depart> departs = new HashSet<>();
 }
